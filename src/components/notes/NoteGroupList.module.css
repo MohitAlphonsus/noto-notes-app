@@ -1,0 +1,14 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.list li {
+  /* background-color: var(--color-primary-light-1); */
+  padding: 1rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}

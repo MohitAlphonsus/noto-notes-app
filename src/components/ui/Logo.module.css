@@ -1,0 +1,16 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.logo svg {
+  height: 3rem;
+  width: 3rem;
+}
+
+.logo span {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}

@@ -1,0 +1,13 @@
+.header {
+  grid-column: 2 / -1;
+  height: 5dvh;
+  padding: 3rem 2rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h4 {
+  font-size: 2rem;
+}

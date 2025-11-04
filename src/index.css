@@ -1,0 +1,56 @@
+:root {
+
+  --color-primary-light: #ffedd5;
+  --color-primary-light-1: #fedaaa;
+  --color-primary-light-2: #fdc274;
+
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-muted-bg: #f1f5f9;
+  --color-border: #e2e8f0;
+
+  /* Text Colors */
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+
+
+
+  --font-body: "Inter", sans-serif;
+  --font-heading: "Manrope",
+    sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--font-body);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+input,
+button,
+textarea {
+  font: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.app {
+  max-width: 140rem;
+  height: 100dvh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: .25fr .75fr;
+}
