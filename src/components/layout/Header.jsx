@@ -1,8 +1,10 @@
+import useNotes from '../../hooks/useNotes';
 import { ThemeSwitch, Button } from '../ui';
 import { getGreetingAndTime } from '../../utils/utils';
 import styles from './Header.module.css';
 
 export default function Header() {
+	const { setIsOpen } = useNotes();
 	const { greeting, formattedDate } = getGreetingAndTime();
 	return (
 		<header className={styles.header}>
@@ -11,7 +13,9 @@ export default function Header() {
 				<span>{formattedDate}</span>
 			</div>
 			<div className={styles.headerActions}>
-				<Button>New Note</Button>
+				<Button btnType="primary" onClick={() => setIsOpen(true)}>
+					New Note
+				</Button>
 				<ThemeSwitch />
 			</div>
 		</header>
