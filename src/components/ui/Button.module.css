@@ -1,0 +1,22 @@
+.btn {
+  display: inline-block;
+  border: none;
+  background: var(--color-primary-light-1);
+  color: var(--color-text);
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .1);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  box-shadow: 0 0 0 rgba(0, 0, 0, .1);
+  transform: translateY(0);
+}

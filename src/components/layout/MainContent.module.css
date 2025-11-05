@@ -1,8 +1,26 @@
 .mainContent {
   grid-column: 2 / -1;
-  height: calc(100dvh - 5dvh);
+  height: calc(100dvh - 5dvh - 4rem);
   padding: 2rem;
   position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+h2 {
+  font-size: 2.4rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.noteCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
 .noNotes {

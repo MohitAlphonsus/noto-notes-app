@@ -4,6 +4,7 @@ export default function ThemeSwitch() {
 	return (
 		<div>
 			<GiMoon />
+			{/* <GiSun /> */}
 		</div>
 	);
 }

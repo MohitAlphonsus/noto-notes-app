@@ -8,6 +8,22 @@
   justify-content: space-between;
 }
 
-.header h4 {
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.headerDisplayMsg {
+  display: flex;
+  flex-direction: column;
+}
+
+.headerDisplayMsg h4 {
   font-size: 2rem;
+}
+
+.headerDisplayMsg span {
+  font-size: 1.4rem;
+  color: var(--color-gray-400);
 }

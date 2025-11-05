@@ -1,3 +1,4 @@
+import { NoteCard } from '../notes';
 import { MdNoteAdd } from 'react-icons/md';
 import styles from './MainContent.module.css';
 
@@ -8,6 +9,8 @@ export default function MainContent() {
 				<MdNoteAdd />
 				<p>No Notes Yet — Your Ideas Are Waiting To Be Written.</p>
 			</div>
+			{/* <h2>JavaScript</h2> */}
+			<div className={styles.noteCards}></div>
 		</main>
 	);
 }
