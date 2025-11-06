@@ -1,14 +1,14 @@
-import { createContext, useState } from 'react';
+import { createContext, useState } from "react";
 
 const NoteContext = createContext();
 
 function NoteProvider({ children }) {
-	const [noteGroups, setNoteGroups] = useState([]);
 	const [isOpen, setIsOpen] = useState(false);
+	const [activeGroup, setActiveGroup] = useState(null);
 
 	return (
 		<NoteContext.Provider
-			value={{ noteGroups, setNoteGroups, isOpen, setIsOpen }}
+			value={{ isOpen, setIsOpen, activeGroup, setActiveGroup }}
 		>
 			{children}
 		</NoteContext.Provider>

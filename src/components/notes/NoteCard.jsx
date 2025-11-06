@@ -1,19 +1,16 @@
-import styles from './NoteCard.module.css';
+import { formatToDate, formatToTime } from "../../utils/utils";
+import styles from "./NoteCard.module.css";
 
-export default function NoteCard() {
+export default function NoteCard({ note }) {
 	return (
 		<div className={styles.notecard}>
 			<header>
-				<span className={styles.date}>12/10/2025</span>
-				<h4 className={styles.title}>Story Idea – The Clockmaker’s Daughter</h4>
+				<span className={styles.date}>{formatToDate(note.createdAt)}</span>
+				<h4 className={styles.title}>{note.title}</h4>
 			</header>
 			<main>
-				<p className={styles.note}>
-					A girl discovers her father’s old pocket watch can rewind time, but
-					each use erases one of her memories. Theme explores sacrifice and
-					nostalgia.
-				</p>
-				<span className={styles.time}>12:45PM Wednesday</span>
+				<p className={styles.note}>{note.content}</p>
+				<span className={styles.time}>{formatToTime(note.createdAt)}</span>
 			</main>
 		</div>
 	);

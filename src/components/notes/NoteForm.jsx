@@ -1,14 +1,17 @@
-import { useState } from 'react';
-import { createPortal } from 'react-dom';
-import useNotes from '../../hooks/useNotes';
-import { Button } from '../ui';
-import styles from './NoteForm.module.css';
+import { useState } from "react";
+import { createPortal } from "react-dom";
+import useNotes from "../../hooks/useNotes";
+import { Button } from "../ui";
+import useNoteStore from "../../store/noteStore";
+import styles from "./NoteForm.module.css";
 export default function NoteForm() {
 	const [note, setNote] = useState({
-		title: '',
-		desc: '',
+		title: "",
+		content: "",
 	});
-	const { isOpen, setIsOpen } = useNotes();
+	const { isOpen, setIsOpen, activeGroup } = useNotes();
+	const { createNote } = useNoteStore();
+
 	if (!isOpen) return null;
 
 	function handleChange(e) {
@@ -20,8 +23,10 @@ export default function NoteForm() {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		setNote('');
+		createNote(activeGroup, note.title, note.content);
 
+		setNote({ title: "", content: "" });
+		setIsOpen(false);
 		console.log(note);
 	}
 
@@ -39,8 +44,8 @@ export default function NoteForm() {
 					/>
 					<textarea
 						placeholder="descriptive note"
-						name="desc"
-						value={note.desc}
+						name="content"
+						value={note.content}
 						onChange={handleChange}
 					/>
 					<div className={styles.formActions}>
@@ -54,6 +59,6 @@ export default function NoteForm() {
 				</form>
 			</div>
 		</>,
-		document.getElementById('modal'),
+		document.getElementById("modal")
 	);
 }

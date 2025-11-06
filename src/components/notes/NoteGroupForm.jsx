@@ -1,26 +1,33 @@
-import { useState } from 'react';
-import useNotes from '../../hooks/useNotes';
-import styles from './NoteGroupForm.module.css';
+import { useState } from "react";
+import useNoteGroupStore from "../../store/noteGroupStore";
+import styles from "./NoteGroupForm.module.css";
 
 export default function NoteGroupForm() {
-	const [group, setGroup] = useState('');
-	const { setNoteGroups } = useNotes();
+	const [groupName, setGroupName] = useState("");
+	const { createNoteGroup } = useNoteGroupStore();
 
 	function handleChange(e) {
-		setGroup(e.target.value);
+		setGroupName(e.target.value);
 	}
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		setNoteGroups(prevGroup => [...prevGroup, group]);
-		setGroup('');
+
+		createNoteGroup(groupName);
+
+		setGroupName("");
 	}
 
 	return (
 		<div className={styles.noteGroupForm}>
 			<h3>Add Note Group</h3>
 			<form onSubmit={handleSubmit}>
-				<input type="text" name="group" value={group} onChange={handleChange} />
+				<input
+					type="text"
+					name="groupName"
+					value={groupName}
+					onChange={handleChange}
+				/>
 				<button type="submit">&#43;</button>
 			</form>
 		</div>
