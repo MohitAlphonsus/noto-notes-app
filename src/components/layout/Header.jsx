@@ -3,14 +3,13 @@ import useNoteGroupStore from "../../store/noteGroupStore";
 import { ThemeSwitch, Button } from "../ui";
 import { getGreetingAndTime } from "../../utils/utils";
 import styles from "./Header.module.css";
-import { use } from "react";
 
 export default function Header() {
 	const { noteGroups } = useNoteGroupStore();
-	const { setIsOpen } = useNotes();
+	const { setIsOpen, activeGroup } = useNotes();
 	const { greeting, formattedDate } = getGreetingAndTime();
 
-	const disabled = noteGroups?.length === 0 ? true : false;
+	const disabled = !activeGroup || noteGroups?.length === 0 ? true : false;
 
 	return (
 		<header className={styles.header}>

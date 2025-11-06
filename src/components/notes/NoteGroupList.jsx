@@ -7,23 +7,30 @@ import styles from "./NoteGroupList.module.css";
 export default function NoteGroupList() {
 	const { noteGroups, getNoteGroups, deleteNoteGroup } = useNoteGroupStore();
 	const { activeGroup, setActiveGroup } = useNotes();
+
 	useEffect(
 		function () {
 			getNoteGroups();
-
-			const savedGroupId = localStorage.getItem("activeGroup");
-			if (savedGroupId && noteGroups.length > 0) {
-				const savedGroup = noteGroups.find(g => g._id === savedGroupId);
-				if (savedGroup) {
-					setActiveGroup(savedGroup._id);
-				}
-			} else if (noteGroups.length > 0 && !activeGroup) {
-				// Default to the first group if none selected
-				setActiveGroup(noteGroups[0]._id);
-				localStorage.setItem("activeGroup", noteGroups[0]._id);
-			}
 		},
 		[getNoteGroups]
+	);
+
+	useEffect(
+		function () {
+			if (noteGroups.length === 0) return;
+
+			const savedGroupId = localStorage.getItem("activeGroup");
+			const savedGroupExists = noteGroups.some(g => g._id === savedGroupId);
+
+			if (savedGroupId && savedGroupExists) {
+				setActiveGroup(savedGroupId);
+			} else {
+				const latestGroup = noteGroups[noteGroups.length - 1];
+				setActiveGroup(latestGroup._id);
+				localStorage.setItem("activeGroup", latestGroup._id);
+			}
+		},
+		[noteGroups, setActiveGroup]
 	);
 
 	function handleSelectNoteGroup(noteGroup) {

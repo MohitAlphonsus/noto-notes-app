@@ -5,9 +5,7 @@ const NoteContext = createContext();
 function NoteProvider({ children }) {
 	const [isOpen, setIsOpen] = useState(false);
 	const [selectedNote, setSelectedNote] = useState(null);
-	const [activeGroup, setActiveGroup] = useState(
-		() => localStorage.getItem("activeGroup") || null
-	);
+	const [activeGroup, setActiveGroup] = useState(null);
 
 	return (
 		<NoteContext.Provider
