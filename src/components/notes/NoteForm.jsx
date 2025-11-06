@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import useNotes from "../../hooks/useNotes";
 import { Button } from "../ui";
@@ -9,8 +9,22 @@ export default function NoteForm() {
 		title: "",
 		content: "",
 	});
-	const { isOpen, setIsOpen, activeGroup } = useNotes();
-	const { createNote } = useNoteStore();
+	const { isOpen, setIsOpen, activeGroup, selectedNote, setSelectedNote } =
+		useNotes();
+	const { createNote, updateNote } = useNoteStore();
+
+	useEffect(
+		function () {
+			if (selectedNote) {
+				setNote({
+					title: selectedNote.title,
+					content: selectedNote.content,
+				});
+				setIsOpen(true);
+			}
+		},
+		[selectedNote]
+	);
 
 	if (!isOpen) return null;
 
@@ -23,11 +37,16 @@ export default function NoteForm() {
 
 	function handleSubmit(e) {
 		e.preventDefault();
-		createNote(activeGroup, note.title, note.content);
+
+		if (selectedNote) {
+			updateNote(selectedNote._id, note.title, note.content);
+		} else {
+			createNote(activeGroup, note.title, note.content);
+		}
 
 		setNote({ title: "", content: "" });
 		setIsOpen(false);
-		console.log(note);
+		setSelectedNote(null);
 	}
 
 	return createPortal(
@@ -50,7 +69,7 @@ export default function NoteForm() {
 					/>
 					<div className={styles.formActions}>
 						<Button btnType="primary" type="submit">
-							Save
+							{selectedNote ? "Update" : "Save"}
 						</Button>
 						<Button btnType="secondary" onClick={() => setIsOpen(false)}>
 							Cancel

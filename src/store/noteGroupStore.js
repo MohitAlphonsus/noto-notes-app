@@ -1,4 +1,5 @@
 import axiosClient from "../api/axiosClient";
+import useNoteStore from "./noteStore";
 import { create } from "zustand";
 
 const useNoteGroupStore = create(set => ({
@@ -34,6 +35,13 @@ const useNoteGroupStore = create(set => ({
 			set(state => ({
 				noteGroups: state.noteGroups.filter(noteGroup => noteGroup._id !== id),
 			}));
+
+			const { clearNotes } = useNoteStore.getState();
+			const savedGroupId = localStorage.getItem("activeGroup");
+			if (savedGroupId === id) {
+				localStorage.removeItem("activeGroup");
+				clearNotes();
+			}
 		} catch (err) {
 			console.log(err);
 		}
