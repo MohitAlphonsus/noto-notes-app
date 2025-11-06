@@ -61,3 +61,30 @@
 .actions button:hover {
 	opacity: 1;
 }
+
+@media (max-width: 52.5em) {
+	.title {
+		font-size: 1.8rem;
+	}
+
+	.date,
+	.time {
+		font-size: 1.2rem;
+		font-weight: 600;
+		opacity: 0.8;
+		letter-spacing: 1px;
+	}
+
+	.time {
+		font-size: 1rem;
+	}
+
+	.actions {
+		top: 2rem;
+		right: 2rem;
+	}
+
+	.actions button {
+		font-size: 1.6rem;
+	}
+}

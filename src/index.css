@@ -60,3 +60,21 @@ ul {
 		grid-template-columns: 0.3fr 0.7fr;
 	}
 }
+
+@media (max-width: 52.5em) {
+	body {
+		font-size: 1.4rem;
+	}
+}
+
+@media (max-width: 43.75em) {
+	.app {
+		grid-template-columns: 0.4fr 0.6fr;
+	}
+}
+
+@media (max-width: 34.37em) {
+	.app {
+		grid-template-columns: 1fr;
+	}
+}

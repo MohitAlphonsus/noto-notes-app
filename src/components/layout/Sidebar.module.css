@@ -9,3 +9,9 @@
 	gap: 4rem;
 	position: relative;
 }
+
+@media (max-width: 34.37em) {
+	.sidebar {
+		grid-column: 1 / 3;
+	}
+}

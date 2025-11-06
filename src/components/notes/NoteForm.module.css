@@ -1,57 +1,68 @@
 .noteFormModel {
-  background-color: var(--color-primary-light-1);
-  height: calc(100vh - 40%);
-  width: calc(100vw - 50%);
-  border-radius: 5px;
-  padding: 2rem;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-
+	background-color: var(--color-primary-light-1);
+	height: calc(100vh - 40%);
+	width: calc(100vw - 50%);
+	border-radius: 5px;
+	padding: 2rem;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
 }
 
 .noteFormModel form {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
 .noteFormModel form input,
 .noteFormModel form textarea {
-  width: 100%;
-  border: none;
-  background: none;
-  padding: 1rem;
+	width: 100%;
+	border: none;
+	background: none;
+	padding: 1rem;
 }
 
 .noteFormModel form input {
-  border-bottom: 1px solid var(--color-primary-light-border);
-
+	border-bottom: 1px solid var(--color-primary-light-border);
 }
 
 .noteFormModel form textarea {
-  resize: none;
-  height: 100%;
+	resize: none;
+	height: 100%;
 }
 
 .noteFormModel form input:focus,
 .noteFormModel form textarea:focus {
-  outline: none;
+	outline: none;
 }
 
 .noteFormModel .formActions {
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 }
 
 .overlay {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, .5);
-  z-index: 1;
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1;
+}
+
+@media (max-width: 52.5em) {
+	.noteFormModel {
+		height: calc(100vh - 40%);
+		width: calc(100vw - 30%);
+	}
+}
+
+@media (max-width: 34.37em) {
+	.noteFormModel {
+		width: calc(100vw - 10%);
+	}
 }

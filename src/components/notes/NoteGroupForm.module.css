@@ -1,38 +1,50 @@
 .noteGroupForm {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
 .noteGroupForm h3 {
-  font-size: 1.2rem;
-  text-transform: uppercase;
+	font-size: 1.2rem;
+	text-transform: uppercase;
 }
 
 .noteGroupForm form {
-  display: flex;
-  gap: 2px;
+	display: flex;
+	gap: 2px;
 }
 
 .noteGroupForm form input {
-  border: none;
-  background-color: var(--color-primary-light-1);
-  width: 90%;
-  padding: 1rem;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+	border: none;
+	background-color: var(--color-primary-light-1);
+	width: 90%;
+	padding: 1rem;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 
 .noteGroupForm form input:focus {
-  outline: none;
+	outline: none;
 }
 
 .noteGroupForm form button {
-  border: none;
-  background-color: var(--color-primary-light-2);
-  width: 10%;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  font-size: 2rem;
-  cursor: pointer;
+	border: none;
+	background-color: var(--color-primary-light-2);
+	width: 10%;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	font-size: 2rem;
+	cursor: pointer;
+}
+
+@media (max-width: 52.5em) {
+	.noteGroupForm form input {
+		width: 80%;
+		padding: 0.8rem;
+	}
+
+	.noteGroupForm form button {
+		width: 20%;
+		font-size: 1.8rem;
+	}
 }

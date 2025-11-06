@@ -37,6 +37,7 @@
 	opacity: 0.5;
 	cursor: pointer;
 	font-size: 1.8rem;
+	margin-top: 0.3rem;
 }
 
 .actions button:hover {
@@ -50,4 +51,23 @@
 	transform: translate(-50%, -50%);
 	opacity: 0.6;
 	text-transform: uppercase;
+}
+
+@media (max-width: 52.5em) {
+	.list li {
+		width: max-content;
+		font-size: 1.4rem;
+		padding: 0.5rem 1rem;
+	}
+}
+
+@media (max-width: 34.37em) {
+	.list {
+		flex-direction: row;
+		flex-wrap: wrap;
+	}
+
+	.actions button {
+		font-size: 1.4rem;
+	}
 }
