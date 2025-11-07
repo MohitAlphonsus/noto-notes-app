@@ -1,20 +1,28 @@
-:root {
+:root[data-theme="light"] {
 	--color-primary-light: #ffedd5;
 	--color-primary-light-1: #fedaaa;
 	--color-primary-light-2: #fdc274;
-
 	--color-primary-light-border: #e5c499;
-
 	--color-gray-400: #9ca3af;
-
-	--color-bg: #f8fafc;
-	--color-surface: #ffffff;
-	--color-muted-bg: #f1f5f9;
-	--color-border: #e2e8f0;
-
-	/* Text Colors */
 	--color-text: #0f172a;
+	--color-border: #eee;
 	--color-text-muted: #475569;
+	--color-bg: #ffffff;
+
+	--font-body: "Inter", sans-serif;
+	--font-heading: "Manrope", sans-serif;
+}
+
+:root[data-theme="dark"] {
+	--color-primary-light: #1e293b;
+	--color-primary-light-1: #273449;
+	--color-primary-light-2: #334155;
+	--color-primary-light-border: #3f4d63;
+	--color-gray-400: #64748b;
+	--color-text: #f8fafc;
+	--color-border: #1e293b;
+	--color-text-muted: #94a3b8;
+	--color-bg: #0f172a;
 
 	--font-body: "Inter", sans-serif;
 	--font-heading: "Manrope", sans-serif;
@@ -41,6 +49,7 @@ input,
 button,
 textarea {
 	font: inherit;
+	color: var(--color-text);
 }
 
 ul {
